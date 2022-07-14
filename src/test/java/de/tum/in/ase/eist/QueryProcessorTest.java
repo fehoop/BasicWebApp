@@ -11,13 +11,13 @@ class QueryProcessorTest {
 
 	@Test
 	void testEmptyStringIfCannotProcessQuery() {
-		assertEquals("", queryProcessor.process("test"));
+		assertEquals("", queryProcessor.process("fehoop"));
 	}
 
 	@Test
 	void testKnowsAboutShakespeare() {
 		String actual = queryProcessor.process("Shakespeare");
-		if (!actual.contains("fehoop")) {
+		if (!actual.contains("Shakespeare")) {
 			fail("The QueryProcessor does not know about Shakespeare.");
 		}
 	}
@@ -25,7 +25,7 @@ class QueryProcessorTest {
 	@Test
 	void isNotCaseSensitive() {
 		String actual = queryProcessor.process("shakespeare");
-		if (!actual.contains("fehoop")) {
+		if (!actual.contains("Shakespeare")) {
 			fail("Your QueryProcessor should not be case sensitive.");
 		}
 	}
