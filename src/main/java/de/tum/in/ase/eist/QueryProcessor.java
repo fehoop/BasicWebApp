@@ -13,15 +13,20 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.contains("name")) {
             return "fehoop";
-        } else { // TODO extend the programm here
-            final String[] split = query.split(",");
-            int max = Integer.MIN_VALUE;
-            if (split.length > 1) {
-                for (int i = 1; i < split.length; i++) {
-                    max = Math.max(Integer.parseInt(split[i]), max);
+        } else if (query.contains("plus")) {
+            final String[] split = query.split(" ");
+            int posPlus = -1;
+            for (int i = 0; i < split.length; i++) {
+                if (split[i].equals("plus")) {
+                    posPlus = i;
                 }
             }
-            return String.valueOf(max);
+            if (posPlus >= 0) {
+                return String.valueOf(Integer.parseInt(split[posPlus - 1]) + Integer.parseInt(split[posPlus + 1]));
+            }
+            return null;
+        } else {
+            return null;
         }
     }
 }
