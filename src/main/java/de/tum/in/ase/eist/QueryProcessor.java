@@ -14,7 +14,7 @@ public class QueryProcessor {
         } else if (query.contains("name")) {
            return "fehoop";
         } else { // TODO extend the programm here
-            return "27";
+            return "660";
         }
     }
 }
